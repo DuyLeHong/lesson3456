@@ -35,21 +35,26 @@ class HomePageState extends State<Lesson3HomePage> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Title AppBar'),
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text('Lesson 3 - Demo UI'),
       ),
-      body: Center(
+      body: SafeArea(
+        child: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text('Lesson 3 - HomePage'),
-          Text('Số lần click vào nút:'),
-          Text(
-            '$counter',
-            style: Theme.of(context).textTheme.headline3,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('Lesson 3 - HomePage'),
+              Text('Số lần click vào nút:'),
+              Text(
+                '$counter',
+                style: Theme.of(context).textTheme.headline3,
+              ),
+            ],
           ),
-        ],
-      )),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.plus_one),
         onPressed: () {
@@ -60,4 +65,26 @@ class HomePageState extends State<Lesson3HomePage> {
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+  }
+
+
 }
