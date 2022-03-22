@@ -40,35 +40,42 @@ class HomePageState extends State<Lesson3HomePage> {
         title: Text('Lesson 3 - Demo UI'),
       ),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Lesson 3 - HomePage'),
-              Text('Số lần click vào nút:'),
-              Text(
-                '$counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.network(
-                    'https://codefresher.vn/wp-content/uploads/2022/01/banner_2022_flutter.jpg',
-                    width: 100,
-                    height: 100,
-                  ),
-                ],
-              ),
-              TextField(),
-              ElevatedButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Nut da duoc bam!')));
-                  },
-                  child: Text('Click me!')),
-            ],
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Lesson 3 - HomePage'),
+                Text('Số lần click vào nút:'),
+                Text(
+                  '$counter',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Flexible(child: TextField()),
+                    SizedBox(width: 16,),
+                    Image.network(
+                      'https://codefresher.vn/wp-content/uploads/2022/01/banner_2022_flutter.jpg',
+                      width: 100,
+                      height: 100,
+                    ),
+                    SizedBox(width: 16),
+                    ElevatedButton(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Nut da duoc bam!')));
+                        },
+                        child: Text('Click me!')
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
