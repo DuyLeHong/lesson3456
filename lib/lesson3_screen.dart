@@ -49,8 +49,25 @@ class HomePageState extends State<Lesson3HomePage> {
               Text('Số lần click vào nút:'),
               Text(
                 '$counter',
-                style: Theme.of(context).textTheme.headline3,
+                style: Theme.of(context).textTheme.headline4,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.network(
+                    'https://codefresher.vn/wp-content/uploads/2022/01/banner_2022_flutter.jpg',
+                    width: 100,
+                    height: 100,
+                  ),
+                ],
+              ),
+              TextField(),
+              ElevatedButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Nut da duoc bam!')));
+                  },
+                  child: Text('Click me!')),
             ],
           ),
         ),
@@ -85,6 +102,4 @@ class HomePageState extends State<Lesson3HomePage> {
   void deactivate() {
     super.deactivate();
   }
-
-
 }
