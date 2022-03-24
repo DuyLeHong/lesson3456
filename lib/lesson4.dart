@@ -44,8 +44,7 @@ class Lesson4HomePage extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   child: Row(
                     children: <Widget>[
-                      Expanded(
-                        flex: 2,
+                      Flexible(
                         child: Container(
                           color: Colors.blueGrey,
                           height: 150,
@@ -56,10 +55,11 @@ class Lesson4HomePage extends StatelessWidget {
                         height: 150,
                         width: 50,
                       ),
-                      Expanded(
+                      Flexible(
+                        fit: FlexFit.loose,
                         child: Container(
                           color: Colors.cyan,
-                          height: 150,
+                          child: Text('Short text'),
                         ),
                       ),
                     ],
