@@ -40,13 +40,31 @@ class Lesson4HomePage extends StatelessWidget {
                     width: 100,
                   ),
                 ),
-
                 Container(
-                  color: Colors.purple,
-                  height: 200,
-                  width: 100,
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 2,
+                        child: Container(
+                          color: Colors.blueGrey,
+                          height: 150,
+                        ),
+                      ),
+                      Container(
+                        color: Colors.brown,
+                        height: 150,
+                        width: 50,
+                      ),
+                      Expanded(
+                        child: Container(
+                          color: Colors.cyan,
+                          height: 150,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-
                 Expanded(
                   flex: 2,
                   child: Container(
@@ -54,7 +72,6 @@ class Lesson4HomePage extends StatelessWidget {
                     width: 100,
                   ),
                 ),
-
               ],
             ),
           ),
