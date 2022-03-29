@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson3456/screen2.dart';
 
 void main() {
   runApp(MyAppForLesson5());
@@ -134,6 +135,14 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
                   ],
                 ),
               ),
+              ElevatedButton(onPressed: () {
+                var data = 'CineArts at the Empire';
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) {
+                  // do something
+                  return Screen2(data);
+                }));
+              }, child: Text('Go to Screen 2')),
               Flexible(
                 child: ListView.separated(
                   shrinkWrap: true,
@@ -232,8 +241,12 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
         color: Colors.blue[500],
       ),
       onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$title \n$subtitle')));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('$title')));
+      },
+      onLongPress: () {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('$subtitle')));
       },
       // trailing: Icon(
       //   icon,
