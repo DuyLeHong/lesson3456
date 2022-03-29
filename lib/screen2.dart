@@ -9,6 +9,14 @@ class Screen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var data;
+    if (_dataFromScreen1 != '') {
+      data = _dataFromScreen1;
+    } else {
+      data = ModalRoute.of(context)?.settings.arguments;
+    }
+
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -19,7 +27,7 @@ class Screen2 extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(_dataFromScreen1),
+              Text(data),
               ElevatedButton(onPressed: () {
                 var resultData = 'data from screen 2';
                 Navigator.pop(context, resultData);

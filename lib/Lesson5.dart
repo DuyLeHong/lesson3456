@@ -5,6 +5,11 @@ void main() {
   runApp(MyAppForLesson5());
 }
 
+class Routes {
+  //static final String screen1 = "/screen1";
+  static final String screen2 = "/screen2";
+}
+
 class MyAppForLesson5 extends StatelessWidget {
   const MyAppForLesson5({Key? key}) : super(key: key);
 
@@ -16,6 +21,9 @@ class MyAppForLesson5 extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
+        routes: {
+          Routes.screen2: (context) => Screen2(''),
+        },
         home: Lesson5HomePage());
   }
 }
@@ -137,11 +145,12 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
               ),
               ElevatedButton(onPressed: () {
                 var data = 'CineArts at the Empire';
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) {
-                  // do something
-                  return Screen2(data);
-                }));
+                // Navigator.push(
+                //     context, MaterialPageRoute(builder: (context) {
+                //   // do something
+                //   return Screen2(data);
+                // }));
+                Navigator.pushNamed(context, Routes.screen2, arguments: data);
               }, child: Text('Go to Screen 2')),
               Flexible(
                 child: ListView.separated(
