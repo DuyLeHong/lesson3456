@@ -23,39 +23,135 @@ class Lesson5HomePage extends StatelessWidget {
     final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L'];
     final List<int> colorCodes = <int>[600, 500, 400, 300, 200, 100, 200, 300, 400, 500, 600];
 
+    //custom sliver appbar for scrollview
+    bool _pinned = true;
+    bool _snap = false;
+    bool _floating = false;
+
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Lesson 5 - Example'),
-        ),
+        // appBar: AppBar(
+        //   title: const Text('Lesson 5 - Example'),
+        // ),
         body: SafeArea(
           child: Center(
             child: Column(
               children: [
                 Flexible(
-                  child: ListView(
-                    padding: const EdgeInsets.all(8),
-                    children: <Widget>[
-                      Container(
-                        height: 50,
-                        color: Colors.cyan[600],
-                        child: const Center(child: Text('Entry A')),
+                  child: CustomScrollView(
+                    shrinkWrap: true,
+                    slivers: <Widget>[
+                      SliverAppBar(
+                        pinned: _pinned,
+                        snap: _snap,
+                        floating: _floating,
+                        expandedHeight: 150.0,
+                        flexibleSpace: const FlexibleSpaceBar(
+                          centerTitle: true,
+                          title: Text('SliverAppBar'),
+                          background: FlutterLogo(),
+                        ),
                       ),
-                      Container(
-                        height: 50,
-                        color: Colors.cyan[500],
-                        child: const Center(child: Text('Entry B')),
+                      const SliverToBoxAdapter(
+                        child: SizedBox(
+                          height: 20,
+                          child: Center(
+                            child: Text('Scroll to see the SliverAppBar in effect.'),
+                          ),
+                        ),
                       ),
-                      Container(
-                        height: 50,
-                        color: Colors.cyan[100],
-                        child: const Center(child: Text('Entry C')),
+                      SliverPadding(
+                        padding: const EdgeInsets.all(20.0),
+                        sliver: SliverList(
+                          delegate: SliverChildListDelegate(
+                            <Widget>[
+
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[600],
+                                child: const Center(child: Text('Entry A')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[500],
+                                child: const Center(child: Text('Entry B')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[100],
+                                child: const Center(child: Text('Entry C')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[600],
+                                child: const Center(child: Text('Entry A')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[500],
+                                child: const Center(child: Text('Entry B')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[100],
+                                child: const Center(child: Text('Entry C')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[600],
+                                child: const Center(child: Text('Entry A')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[500],
+                                child: const Center(child: Text('Entry B')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[100],
+                                child: const Center(child: Text('Entry C')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[600],
+                                child: const Center(child: Text('Entry A')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[500],
+                                child: const Center(child: Text('Entry B')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[100],
+                                child: const Center(child: Text('Entry C')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[600],
+                                child: const Center(child: Text('Entry A')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[500],
+                                child: const Center(child: Text('Entry B')),
+                              ),
+                              Container(
+                                height: 50,
+                                color: Colors.cyan[100],
+                                child: const Center(child: Text('Entry C')),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
-                  ),
+                  )
+                  ,
                 ),
                 Flexible(
                   child: ListView.separated(
+                    shrinkWrap: true,
                     padding: const EdgeInsets.all(8),
                     itemCount: entries.length,
                     itemBuilder: (BuildContext context, int index) {
