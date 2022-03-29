@@ -143,7 +143,7 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
                     return InkWell(
                       child: Container(
                         height: 50,
-                        color: Colors.amber[colorCodes[index]],
+                        //color: Colors.amber[colorCodes[index]],
                         child: Center(child: Text('Entry ${entries[index]}')),
                       ),
                       onTap: () {
@@ -231,10 +231,14 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
         icon,
         color: Colors.blue[500],
       ),
-      trailing: Icon(
-        icon,
-        color: Colors.blue[500],
-      ),
+      onTap: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('$title \n$subtitle')));
+      },
+      // trailing: Icon(
+      //   icon,
+      //   color: Colors.blue[500],
+      // ),
     );
   }
 }
