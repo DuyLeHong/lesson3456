@@ -140,7 +140,7 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
                   padding: const EdgeInsets.all(8),
                   itemCount: entries.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
+                    return InkWell(
                       child: Container(
                         height: 50,
                         color: Colors.amber[colorCodes[index]],
