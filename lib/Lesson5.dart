@@ -20,13 +20,11 @@ class MyAppForLesson5 extends StatelessWidget {
 }
 
 class Lesson5HomePage extends StatefulWidget {
-
   @override
   State<Lesson5HomePage> createState() => _Lesson5HomePageState();
 }
 
 class _Lesson5HomePageState extends State<Lesson5HomePage> {
-
   //custom sliver appbar for scrollview
   bool _pinned = true;
   bool _snap = false;
@@ -97,19 +95,39 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
                     SliverPadding(
                       padding: const EdgeInsets.all(20.0),
                       sliver: SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          (BuildContext context, int index) {
-                            return Container(
-                              color: (index % 2 != 0)
-                                  ? Colors.white
-                                  : Colors.black12,
-                              height: 100.0,
-                              child: Center(
-                                child: Text('$index', textScaleFactor: 5),
-                              ),
-                            );
-                          },
-                          childCount: 25,
+                        delegate: SliverChildListDelegate(
+                          <Widget>[
+                            const Divider(),
+                            _buildTile('CineArts at the Empire',
+                                '85 W Portal Ave', Icons.theaters),
+                            const Divider(),
+                            _buildTile('The Castro Theater', '429 Castro St',
+                                Icons.theaters),
+                            const Divider(),
+                            _buildTile('Alamo Drafthouse Cinema',
+                                '2550 Mission St', Icons.theaters),
+                            const Divider(),
+                            _buildTile('Roxie Theater', '3117 16th St',
+                                Icons.theaters),
+                            const Divider(),
+                            _buildTile('United Artists Stonestown Twin',
+                                '501 Buckingham Way', Icons.theaters),
+                            const Divider(),
+                            _buildTile('AMC Metreon 16', '135 4th St #3000',
+                                Icons.theaters),
+                            const Divider(),
+                            _buildTile('K\'s Kitchen', '757 Monterey Blvd',
+                                Icons.restaurant),
+                            const Divider(),
+                            _buildTile('Emmy\'s Restaurant', '1923 Ocean Ave',
+                                Icons.restaurant),
+                            const Divider(),
+                            _buildTile('Chaiya Thai Restaurant',
+                                '272 Claremont Blvd', Icons.restaurant),
+                            const Divider(),
+                            _buildTile(
+                                'La Ciccia', '291 30th St', Icons.restaurant),
+                          ],
                         ),
                       ),
                     ),
@@ -122,10 +140,16 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
                   padding: const EdgeInsets.all(8),
                   itemCount: entries.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: 50,
-                      color: Colors.amber[colorCodes[index]],
-                      child: Center(child: Text('Entry ${entries[index]}')),
+                    return GestureDetector(
+                      child: Container(
+                        height: 50,
+                        color: Colors.amber[colorCodes[index]],
+                        child: Center(child: Text('Entry ${entries[index]}')),
+                      ),
+                      onTap: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Entry ${entries[index]}')));
+                      },
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
@@ -191,6 +215,25 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  ListTile _buildTile(String title, String subtitle, IconData icon) {
+    return ListTile(
+      title: Text(title,
+          style: const TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 20,
+          )),
+      subtitle: Text(subtitle),
+      leading: Icon(
+        icon,
+        color: Colors.blue[500],
+      ),
+      trailing: Icon(
+        icon,
+        color: Colors.blue[500],
       ),
     );
   }
