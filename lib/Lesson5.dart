@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:lesson3456/screen2.dart';
+import 'package:lesson3456/screen3.dart';
 
 void main() {
   runApp(MyAppForLesson5());
 }
 
 class Routes {
-  //static final String screen1 = "/screen1";
+  static final String screen1 = "/screen1";
   static final String screen2 = "/screen2";
+  static final String screen3 = "/screen3";
 }
 
 class MyAppForLesson5 extends StatelessWidget {
@@ -18,13 +20,36 @@ class MyAppForLesson5 extends StatelessWidget {
     // TODO: implement build
 
     return MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
-        routes: {
-          Routes.screen2: (context) => Screen2(''),
-        },
-        home: Lesson5HomePage());
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      routes: {
+        Routes.screen1: (context) => Lesson5HomePage(),
+        Routes.screen2: (context) => Screen2('.'),
+        Routes.screen3: (context) => Screen3('')
+      },
+      //initialRoute: Routes.screen1,
+
+      onGenerateRoute: (settings) {
+        // If you push the PassArguments route
+        if (settings.name == Routes.screen2) {
+          // Cast the arguments to the correct
+          // type: ScreenArguments.
+          var args = settings.arguments;
+
+          // Then, extract the required data from
+          // the arguments and pass the data to the
+          // correct screen.
+          return MaterialPageRoute(
+            builder: (context) {
+              return Screen2(args);
+            },
+          );
+        }
+        return null;
+      },
+      home: Lesson5HomePage()
+    );
   }
 }
 
@@ -143,18 +168,22 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
                   ],
                 ),
               ),
-              ElevatedButton(onPressed: () async {
-                var data = 'CineArts at the Empire';
-                // Navigator.push(
-                //     context, MaterialPageRoute(builder: (context) {
-                //   // do something
-                //   return Screen2(data);
-                // }));
-                var resultData = await Navigator.pushNamed(context, Routes.screen2, arguments: data);
+              ElevatedButton(
+                  onPressed: () async {
+                    var data = 'CineArts at the Empire';
+                    // Navigator.push(
+                    //     context, MaterialPageRoute(builder: (context) {
+                    //   // do something
+                    //   return Screen2(data);
+                    // }));
+                    var resultData = await Navigator.pushNamed(
+                        context, Routes.screen2,
+                        arguments: data);
 
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(resultData.toString())));
-              }, child: Text('Go to Screen 2')),
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(resultData.toString())));
+                  },
+                  child: Text('Go to Screen 2')),
               Flexible(
                 child: ListView.separated(
                   shrinkWrap: true,

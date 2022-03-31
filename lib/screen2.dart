@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lesson3456/screen3.dart';
 
+import 'Lesson5.dart';
+
 class Screen2 extends StatelessWidget {
 
   var _initialData;
@@ -32,11 +34,7 @@ class Screen2 extends StatelessWidget {
               ElevatedButton(onPressed: () async {
                 var data = 'data from screen 2';
 
-                var resultData = await Navigator.push(
-                    context, MaterialPageRoute(builder: (context) {
-                  // do something
-                  return Screen3(data);
-                }));
+                var resultData = await Navigator.pushNamed(context, Routes.screen3, arguments: data);
 
                 Navigator.pop(context, resultData);
 
