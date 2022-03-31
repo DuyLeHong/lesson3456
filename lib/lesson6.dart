@@ -58,6 +58,7 @@ class Lesson6HomePage extends StatelessWidget {
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                     crossAxisCount: 2,
+                    childAspectRatio: 3/4,
                     children: <Widget>[
                       Container(
                         padding: const EdgeInsets.all(8),
@@ -96,6 +97,7 @@ class Lesson6HomePage extends StatelessWidget {
             )),
             Expanded(
                 child: GridView.builder(
+                    padding: EdgeInsets.all(10),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
