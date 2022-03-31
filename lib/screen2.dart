@@ -40,6 +40,8 @@ class Screen2 extends StatelessWidget {
 
                 Navigator.pop(context, resultData);
 
+                //Navigator.pop(context);
+
               }, child: Text('Go to Screen 3'))
             ],
           ),
