@@ -22,9 +22,9 @@ class Lesson6HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Lesson 6 - Example'),
-        ),
+        // appBar: AppBar(
+        //   title: const Text('Lesson 6 - Example'),
+        // ),
         body: SafeArea(
           child: Center(
             child: Column(
@@ -33,6 +33,26 @@ class Lesson6HomePage extends StatelessWidget {
                     child: CustomScrollView(
                   primary: false,
                   slivers: <Widget>[
+                    SliverAppBar(
+                      pinned: true,
+                      snap: false,
+                      floating: false,
+                      expandedHeight: 150.0,
+                      flexibleSpace: const FlexibleSpaceBar(
+                        centerTitle: true,
+                        title: Text('SliverAppBar'),
+                        background: FlutterLogo(),
+                      ),
+                    ),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 20,
+                        child: Center(
+                          child:
+                          Text('Scroll to see the SliverAppBar in effect.'),
+                        ),
+                      ),
+                    ),
                     SliverPadding(
                       padding: const EdgeInsets.all(20),
                       sliver: SliverGrid.count(
