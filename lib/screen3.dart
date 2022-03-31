@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lesson3456/screen3.dart';
 
-class Screen2 extends StatelessWidget {
+class Screen3 extends StatelessWidget {
 
   var _initialData;
 
-  Screen2(this._initialData);
+  Screen3(this._initialData);
 
 
   @override
@@ -21,7 +20,7 @@ class Screen2 extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Screen 2'),
+        title: const Text('Screen 3'),
       ),
       body: SafeArea(
         child: Center(
@@ -29,18 +28,10 @@ class Screen2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(data),
-              ElevatedButton(onPressed: () async {
-                var data = 'data from screen 2';
-
-                var resultData = await Navigator.push(
-                    context, MaterialPageRoute(builder: (context) {
-                  // do something
-                  return Screen3(data);
-                }));
-
+              ElevatedButton(onPressed: () {
+                var resultData = 'data from screen 3';
                 Navigator.pop(context, resultData);
-
-              }, child: Text('Go to Screen 3'))
+              }, child: Text('Back to previous Screen'))
             ],
           ),
         ),
