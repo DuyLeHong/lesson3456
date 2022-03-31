@@ -25,10 +25,10 @@ class MyAppForLesson5 extends StatelessWidget {
       ),
       routes: {
         Routes.screen1: (context) => Lesson5HomePage(),
-        Routes.screen2: (context) => Screen2('.'),
+        //Routes.screen2: (context) => Screen2('.'),
         Routes.screen3: (context) => Screen3('')
       },
-      //initialRoute: Routes.screen1,
+      initialRoute: Routes.screen1,
 
       onGenerateRoute: (settings) {
         // If you push the PassArguments route
@@ -48,7 +48,7 @@ class MyAppForLesson5 extends StatelessWidget {
         }
         return null;
       },
-      home: Lesson5HomePage()
+      //home: Lesson5HomePage()
     );
   }
 }
