@@ -29,7 +29,7 @@ class Screen2 extends StatelessWidget {
             children: [
               Text(data),
               ElevatedButton(onPressed: () {
-                var resultData = 'data from screen 2';
+                var resultData = 'data from screen 222';
                 Navigator.pop(context, resultData);
               }, child: Text('Back to Screen 1'))
             ],

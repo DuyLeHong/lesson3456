@@ -143,14 +143,17 @@ class _Lesson5HomePageState extends State<Lesson5HomePage> {
                   ],
                 ),
               ),
-              ElevatedButton(onPressed: () {
+              ElevatedButton(onPressed: () async {
                 var data = 'CineArts at the Empire';
                 // Navigator.push(
                 //     context, MaterialPageRoute(builder: (context) {
                 //   // do something
                 //   return Screen2(data);
                 // }));
-                Navigator.pushNamed(context, Routes.screen2, arguments: data);
+                var resultData = await Navigator.pushNamed(context, Routes.screen2, arguments: data);
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(resultData.toString())));
               }, child: Text('Go to Screen 2')),
               Flexible(
                 child: ListView.separated(
